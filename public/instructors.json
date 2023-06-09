@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Tiler Peck",
+    "subTitle": "Principal at the New York City Ballet ",
+    "email": "tiler@gmail.com ",
+    "image": "https://i.ibb.co/bvJn2NF/IBj-TAQUc-Tj-Ke-GWX9r-Gwn-file.jpg",
+    "category": "popular",
+    "_id": 1
+  },
+  {
+    "name": "Leonore Baulac",
+    "subTitle": "Principal at Paris Opera Ballet",
+    "email": "leo@gmail.com ",
+    "image": "https://i.ibb.co/Zf9B8GT/p-J7-IEk-Sr-Tv-Gylh0-BN0-Nw-file.jpg",
+    "category": "popular",
+    "_id": 2
+  },
+  {
+    "name": "Yanis Marshall",
+    "subTitle": "Choreographer & Teacher",
+    "email": "yanis@gmail.com ",
+    "image": "https://i.ibb.co/hVKhtfB/708056-367a-381-6c56-e1fdcac166a1-y2-min.jpg",
+    "category": "popular",
+    "_id": 3
+  },
+  {
+    "name": "Misa Kuranaga ",
+    "subTitle": "Gold medal winner- International Ballet Competition, Jackson ",
+    "email": "misa@gmail.com",
+    "image": "https://i.ibb.co/NsKP4h1/Wj-H3o-G5-BTAq868-CZJVc-M-file.jpg",
+    "category": "popular",
+    "_id": 4
+  },
+  {
+    "name": "Shahar Binyamini",
+    "subTitle": "Choreographer & Performer    ",
+    "email": "shahar@gmail.com ",
+    "image": "https://i.ibb.co/b3MgK3L/uj-U4-QNUKQmsxoz-EYE3q-G-DSCN-77814-5-MB-Kopie.jpg",
+    "category": "popular",
+    "_id": 5
+  },
+  {
+    "name": "Iana Salenko",
+    "subTitle": "Gold medal winner-  International Ballet Competition in Helsinki, Vienna, Nagoya",
+    "email": "lana@gmail.com ",
+    "image": "https://i.ibb.co/yPTtvz3/Urf-N903-FRK2g-Qtwxmjp-L-file.jpg",
+    "category": "popular",
+    "_id": 6
+  }
+]
