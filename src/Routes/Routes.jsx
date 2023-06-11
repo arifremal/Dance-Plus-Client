@@ -11,6 +11,8 @@ import InstructorPage from "../Pages/InstructorPage";
 import PrivateRoute from "../Authproviders/PrivateRoute";
 import Classes from "../Pages/Classes";
 import MyselectedClass from "../Components/MyselectedClass";
+import Dashboard from "../Layout/Dashboard";
+import Myclass from "../Pages/DashBoard/Myclass";
 
  export const router = createBrowserRouter([
     {
@@ -38,10 +40,21 @@ import MyselectedClass from "../Components/MyselectedClass";
         },{
           path:'myclasses',
           element: <PrivateRoute><MyselectedClass></MyselectedClass></PrivateRoute>
-        },{
-          path:'select',
-          element:<MyselectedClass></MyselectedClass>
-        }
+        },
+        // {
+        //   path:'select',
+        //   element:<MyselectedClass></MyselectedClass>
+        // }
       ]
     },
+    {
+      path:'dashboard',
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children:[
+        {
+          path:'selectedclass',
+          element:<Myclass></Myclass>
+        }
+      ]
+    }
   ]);

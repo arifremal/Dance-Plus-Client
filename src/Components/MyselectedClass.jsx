@@ -58,8 +58,8 @@ const MyselectedClass = () => {
     return (
 
 <div >
-<h1 className='text-2xl text-center pt-32'>Selected Classes</h1>
-<div  className="grid grid-cols-1 md:grid-cols-3 gap-5 p-10 sm:p-2 " >
+<h1 className='text-2xl  '>Selected Classes</h1>
+<div  className="grid grid-cols-1 md:grid-cols-2 gap-5 p-10 sm:p-2 " >
       
       {enrolled.map((enroll) => (
             <MyselectedClassCard

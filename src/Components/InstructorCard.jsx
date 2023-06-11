@@ -5,7 +5,7 @@ const InstructorCard = ({item}) => {
       <figure className="px-10 pt-10">
         <img 
           src={image}
-          alt="Shoes"
+          alt="Instructor"
           className="rounded-xl object-cover "
         />
       </figure>

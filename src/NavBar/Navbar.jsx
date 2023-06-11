@@ -25,14 +25,20 @@ const Navbar = () => {
         <Link to={"/classes"}>Classes </Link>
       
       </li>
-      <Link to={"/"}>
+      <li>
+        <Link to={"/dashboard/selectedclass"}>DashBoard </Link>
+      
+      </li>
+
+
+      {/* <Link to={"/dashboard/selectedclass"}>
         <button className="btn bg-black text-white border-none hover:bg-black">
           <p className="text-yellow-400">Dashboard</p>
           <div className="badge bg-black text-yellow-400 badge-secondary">
             +{enroll.length || 0}
           </div>
         </button>
-      </Link>
+      </Link> */}
     </>
   );
   return (
@@ -88,7 +94,7 @@ const Navbar = () => {
             >
               Logout
             </button>
-            <Link to={"/myclasses"}>My Classes </Link>
+            {/* <Link to={"/myclasses"}>My Classes </Link> */}
 
           </>
         ) : (

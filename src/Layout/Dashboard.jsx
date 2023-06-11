@@ -1,36 +1,62 @@
-import { FaBeer, FaCalendarAlt, FaHome, FaShoppingCart, FaUser, FaWallet } from 'react-icons/fa';
-import { NavLink, Outlet } from 'react-router-dom';
+import {
+    FaAddressBook,
+  FaCalendarAlt,
+  FaDeezer,
+  FaHome,
+  FaShoppingCart,
+  FaUser,
+  FaWallet,
+} from "react-icons/fa";
+
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
-    return (
-        <div className="drawer drawer-mobile ">
-    <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-    <div className="drawer-content flex flex-col items-center justify-center">
+  return (
+    <div className="drawer lg:drawer-open bg-white">
+      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col items-center justify-center">
+        {/* Page content here */}
         <Outlet></Outlet>
-        <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-
-    </div>
-    <div className="drawer-side bg-[#ffbd59]">
+        <label
+          htmlFor="my-drawer-2"
+          className="btn btn-primary drawer-button lg:hidden"
+        >
+          Open drawer
+        </label>
+      </div>
+      <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80">
+        <ul className="menu p-4 w-80 h-full bg-base-200  space-y-3">
+          {/* Sidebar content here */}
 
-        <li><NavLink > <FaUser></FaUser> User</NavLink></li>
-        <li><NavLink to={'/dashboard/mycart'}  > <FaShoppingCart> </FaShoppingCart>My Cart
-        {/* <div className="badge badge-secondary">{cart?.length || 0}</div> */}
-        </NavLink></li>
-        <li><NavLink  > <FaWallet></FaWallet> Payment</NavLink></li>
-        <li><NavLink  > <FaCalendarAlt></FaCalendarAlt> Reservation</NavLink></li>
-
-            <div className="divider"></div>
-            <li><NavLink to={'/'}  > <FaHome></FaHome> Home</NavLink></li>
-            <li><NavLink to={'/menu'}   > <FaHome></FaHome> our Menu</NavLink></li>
-            <li><NavLink to={'/order/salad'}   > <FaHome></FaHome> Order Food</NavLink></li>
-            
+          <li className="hover:bg-yellow-400">
+            <NavLink to={"/"}>
+              {" "}
+              <FaHome></FaHome> Home
+            </NavLink>
+          </li>
+          <li className="hover:bg-yellow-400">
+            <NavLink to={"/dashboard/selectedclass"}>
+              {" "}
+              <FaDeezer></FaDeezer> My selected Class
+            </NavLink>
+          </li>
+          <li className="hover:bg-yellow-400text-black ">
+            <NavLink to={"/dashboard/history"}>
+              {" "}
+              <FaWallet></FaWallet> Payment
+            </NavLink>
+          </li>
+          <li className="hover:bg-yellow-400 text-black ">
+            <NavLink to={"/dashboard/enrolled"}>
+              {" "}
+              <FaAddressBook></FaAddressBook> Enrolled Class
+            </NavLink>
+          </li>
         </ul>
-
+      </div>
     </div>
-</div>
-    );
+  );
 };
 
 export default Dashboard;
