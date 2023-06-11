@@ -19,6 +19,7 @@ const {signIn,gUser}= useContext(AuthContext)
 
 
   const onSubmit = (data) => {
+    
     const email = data.email;
     const password = data.password
     console.log(email,password);
@@ -37,6 +38,7 @@ const {signIn,gUser}= useContext(AuthContext)
         timer: 1500
       })
     })
+    .catch(error=> console.log(error))
     
   };
 

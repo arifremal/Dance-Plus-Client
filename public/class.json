@@ -1,6 +1,10 @@
 [
   {
     "name": "Musicality",
+    "instructorName":"",
+    "email":"",
+    "seats":"",
+    "price":"",
     "subTitle": "The basics of musicality, beat & rhythm for dancers. ",
     "image": "https://i.ibb.co/85kNZtt/Slider-1-4.jpg",
     "category": "popular",
@@ -8,6 +12,9 @@
   },
   {
     "name": "BALLET FOR BEGINNERS",
+    "email":"",
+    "seats":"",
+    "price":"",
     "subTitle": "You will learn every component of a complete ballet class.",
     "image": "https://i.ibb.co/S7Vx0Vb/66f8b73-b472-f6c5-aa30-02d2da65ad-Filming-Dance-Videos-10.jpg",
     "category": "popular",
@@ -15,6 +22,9 @@
   },
   {
     "name": "Heels for Beginners",
+    "email":"",
+    "seats":"",
+    "price":"",
     "subTitle": "Learn the basics: Bevels, walks, turns and floorwork.",
     "image": "https://i.ibb.co/5RFmcvB/0f236b-e00a-4cdb-afe-c20c4f3433-b148b9b9-8bb6-49aa-a453-386558f49f3f.jpg ",
     "category": "popular",
@@ -22,6 +32,9 @@
   },
   {
     "name": "CHOREOGRAPHY",
+    "email":"",
+    "seats":"",
+    "price":"",
     "subTitle": "Learn how to develop your own choreography.",
     "image": "https://i.ibb.co/0swjfkM/c85c0fa-22d4-5d2f-d77-7ab2a7473f8-Official-Thumbnails-Website-DMC-4-min.jpg",
     "category": "popular",
@@ -29,6 +42,9 @@
   },
   {
     "name": "SOMATIC MOVEMENTS",
+    "email":"",
+    "seats":"",
+    "price":"",
     "subTitle": "Create unique movements by trusting your instincts.",
     "image": "https://i.ibb.co/nCPCCXg/be724d-8f15-4ba-46e2-172ce868074c-Official-Thumbnails-Website-DMC-1-min.jpg",
     "category": "popular",
@@ -36,6 +52,9 @@
   },
   {
     "name": "PIROUETTES ON POINTE",
+    "email":"",
+    "seats":"",
+    "price":"",
     "subTitle": "Learn how to turn on pointe shoes, step-by-step. ",
     "image": "https://i.ibb.co/8gxPyCZ/c05f6e-a208-210-f88-8c61208a83-Official-Thumbnails-Website-DMC-min.jpg",
     "category": "popular",
