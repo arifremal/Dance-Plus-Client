@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../Authproviders/AuthProvider';
 
 const MyselectedClassCard = ({enroll,clsdelete}) => {
+  const {user} = useContext(AuthContext)
     const {image,name,price,seats,email,_id} = enroll;
     return (
 
-<div className='pt-30'>
-    <h1>My Selected Classes</h1>
+<div className=''>     
+  <div >
+
 <div className="card w-96 bg-base-100 shadow-xl image-full mt-20">
   <figure><img src={image} alt="Shoes" /></figure>
   <div className="card-body">
@@ -16,6 +19,7 @@ const MyselectedClassCard = ({enroll,clsdelete}) => {
       <button className="btn btn-primary">Pay Now</button>
     </div>
   </div>
+</div>
 </div>
 </div>
     );
