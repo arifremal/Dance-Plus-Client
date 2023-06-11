@@ -1,47 +1,62 @@
 import { useContext } from "react";
 import { AuthContext } from "../Authproviders/AuthProvider";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ClassesCard = ({ item }) => {
-  const {user} = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { _id, image, name, InsturorName, email, price, seats } = item;
+  const { user } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleAddtoCart = (item) => {
     console.log(item);
-    if(user){
-      fetch('http://localhost:5000/enrollled')
-      .then(res=> res.json())
-      .then(data =>{
-        if(data.insertedId){
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-          })
+    if (user && user.email) {
+      const enrolledclass = {
+        clssId: _id,
+        seats,
+        price,
+        name,
+        image,
+        email: user.email,
+      };
 
-        }
-
+      fetch("http://localhost:5000/enroll", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(enrolledclass),
       })
+        .then((res) => res.json())
+
+        .then((data) => {
+          if (data.insertedId) {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Course added on the cart",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
     } else {
       Swal.fire({
-        title: 'Please login to purchase this course',
+        title: "Please login to purchase this course",
 
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'login Now!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "login Now!",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/login')
+          navigate("/login", { state: { from: location } });
         }
-      })
+      });
     }
   };
 
-  const { image, name, InsturorName, email, price, seats } = item;
   return (
     <div className="pt-20">
       <div className="card w-96 bg-white pt-30 ">
