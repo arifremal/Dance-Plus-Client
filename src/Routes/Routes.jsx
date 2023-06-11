@@ -21,7 +21,7 @@ import Classes from "../Pages/Classes";
             element:<Home></Home>
         },{
           path:'instructor',
-          element:<PrivateRoute><InstructorPage></InstructorPage></PrivateRoute>
+          element:<InstructorPage></InstructorPage>
         },
         {
           path:'login',
@@ -32,7 +32,7 @@ import Classes from "../Pages/Classes";
           element:<SignUp></SignUp>
         },{
           path:'classes',
-          element:<PrivateRoute><Classes></Classes></PrivateRoute>
+          element:<Classes></Classes>
         }
       ]
     },

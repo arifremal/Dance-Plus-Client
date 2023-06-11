@@ -5,38 +5,36 @@ import { AuthContext } from "../Authproviders/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const {createUser,  updateProfile} = useContext(AuthContext)
+  const { createUser, updateProfile } = useContext(AuthContext);
 
   const {
     register,
     handleSubmit,
-    watch,
+
     reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    createUser(data.email,data.password)
-    .then(result=>{
+    createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      updateProfile(data.name,data.photoUrl)
-      .then(()=>{
-        console.log('updated');
-        reset()
-        navigate('/')
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Registration Successfully  done',
-          showConfirmButton: false,
-          timer: 1500
+      updateProfile(data.name, data.photoUrl)
+        .then(() => {
+          console.log("updated");
+          reset();
+          navigate("/");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Registration Successfully  done",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         })
-
-      })
-      .catch(error=> console.log(error))
-    })
+        .catch((error) => console.log(error));
+    });
   };
 
   return (
@@ -44,7 +42,9 @@ const SignUp = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold text-center ">Registration Now!</h1>
+            <h1 className="text-5xl font-bold text-center ">
+              Registration Now!
+            </h1>
             <p className="py-6 text-center ">
               Provident cupiditate voluptatem et in. Quaerat <br /> fugiat ut
               assumenda excepturi exercitationem quasi. In deleniti eaque aut
@@ -110,11 +110,14 @@ const SignUp = () => {
                   <p className="text-red-500 ">Password Must be 6 character</p>
                 )}
                 {errors.password?.type === "minLength" && (
-                  <p className="text-red-500 ">Password Must less than 20 character</p>
+                  <p className="text-red-500 ">
+                    Password Must less than 20 character
+                  </p>
                 )}
                 {errors.password?.type === "pattern" && (
                   <p className="text-red-500 ">
-                    Password must have one uppercase one lowercase one number & one special character
+                    Password must have one uppercase one lowercase one number &
+                    one special character
                   </p>
                 )}
               </div>

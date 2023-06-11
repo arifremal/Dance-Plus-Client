@@ -21,7 +21,7 @@ const ClassesCard = ({ item }) => {
            
           </div>
           <div className="card-actions">
-            {/* <button className="btn btn-primary">Buy Now</button> */}
+            <button className="btn  bg-yellow-400 text-black ">Enroll Now</button>
           </div>
         </div>
       </div>
