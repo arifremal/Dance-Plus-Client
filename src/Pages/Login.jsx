@@ -5,9 +5,9 @@ import { AuthContext } from "../Authproviders/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const navigate = useNavigate()
-  const path = useLocation()
-  const from = path.state?.from?.pathname || '/'
+  const navigate = useNavigate();
+  const path = useLocation();
+  const from = path.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -15,52 +15,45 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-const {signIn,gUser}= useContext(AuthContext)
-
+  const { signIn, gUser } = useContext(AuthContext);
 
   const onSubmit = (data) => {
-    
     const email = data.email;
-    const password = data.password
-    console.log(email,password);
-    signIn(email,password)
-    .then(result =>{
-      const user = result.user;
-      console.log(user);
-      navigate(from)
-     
-      
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Successfully logged in done',
-        showConfirmButton: false,
-        timer: 1500
+    const password = data.password;
+    console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from);
+
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully logged in done",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
-    })
-    .catch(error=> console.log(error))
-    
+      .catch((error) => console.log(error));
   };
 
-  const handleGoggle=()=>{
-    gUser()
-    .then((result)=>{
-     const user = result.user;
-     console.log(user);
-     Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Successfully logged in done',
-      showConfirmButton: false,
-      timer: 1500
-    })
-    navigate(from)
-     
-    })
-  }
+  const handleGoggle = () => {
+    gUser().then((result) => {
+      const user = result.user;
+      console.log(user);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Successfully logged in done",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate(from);
+    });
+  };
 
   console.log(watch("example"));
-
 
   return (
     <div className="pt-16">
@@ -75,7 +68,7 @@ const {signIn,gUser}= useContext(AuthContext)
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm  bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)}  className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -94,14 +87,20 @@ const {signIn,gUser}= useContext(AuthContext)
                 </label>
                 <input
                   type="password"
-                  {...register("password" , { required: true,minLength:6, maxLength:20 }  )}
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                  })}
                   placeholder="password"
                   className="input input-bordered"
                 />
-                       {errors.password && <span>Password  is required</span>}
+                {errors.password && <span>Password is required</span>}
 
                 <label className="label">
-                <p>Are you new? <Link to={'/signup'} >Register</Link></p>
+                  <p>
+                    Are you new? <Link to={"/signup"}>Register</Link>
+                  </p>
                 </label>
               </div>
               <div className="form-control mt-6">
@@ -112,10 +111,15 @@ const {signIn,gUser}= useContext(AuthContext)
                 />
               </div>
             </form>
-          <div className="divider">OR</div>
-         <div className="text-center py-2">
-         <button onClick={handleGoggle} className="btn  bg-yellow-400 text-black " >Continue with Goggle</button>
-         </div>
+            <div className="divider">OR</div>
+            <div className="text-center py-2">
+              <button
+                onClick={handleGoggle}
+                className="btn  bg-yellow-400 text-black "
+              >
+                Continue with Goggle
+              </button>
+            </div>
           </div>
         </div>
       </div>
