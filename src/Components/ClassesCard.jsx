@@ -1,6 +1,11 @@
 import React from "react";
 
 const ClassesCard = ({ item }) => {
+  const handleAddtoCart =item =>{
+    console.log(item);
+    
+  }
+
   const { image, name, InsturorName, email, price, seats } = item;
   return (
     <div className="pt-20">
@@ -21,7 +26,7 @@ const ClassesCard = ({ item }) => {
            
           </div>
           <div className="card-actions">
-            <button className="btn  bg-yellow-400 text-black ">Enroll Now</button>
+            <button onClick={()=>handleAddtoCart(item)} className="btn  bg-yellow-400 text-black ">Enroll Now</button>
           </div>
         </div>
       </div>
