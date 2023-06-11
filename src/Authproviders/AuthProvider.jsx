@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
 
 
@@ -30,10 +30,10 @@ const gUser=()=>{
    setLoading(true)
     return signInWithPopup(auth,gProvider)
 }
-const updateProfile =(name,photo)=>{
- return updateProfile(auth.currentUser,{
-    displayName: name, photoUrl: photo
-  })
+const updateUserProfile =(name,photo)=>{
+  return updateProfile(auth.currentUser, {
+    displayName: name, photoURL: photo
+});
 
 }
 
@@ -56,7 +56,7 @@ useEffect(()=>{
     signIn,
     logout,
     gUser,
-    updateProfile
+    updateUserProfile
 
   };
   return (

@@ -40,8 +40,30 @@ const Login = () => {
 
   const handleGoggle = () => {
     gUser().then((result) => {
-      const user = result.user;
-      console.log(user);
+      const loggeduser = result.user;
+      console.log(loggeduser);
+
+
+      const savedUser = { name: loggeduser.displayName, email: loggeduser.email };
+      console.log(savedUser);
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(savedUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+        
+            navigate(from);
+         
+          }
+        });
+
+
+
       Swal.fire({
         position: "center",
         icon: "success",

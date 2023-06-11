@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const SignUp = () => {
   const navigate = useNavigate();
 
-  const { createUser, updateProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const {
     register,
@@ -17,21 +17,35 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      updateProfile(data.name, data.photoUrl)
+      updateUserProfile(data.name, data.photoUrl)
         .then(() => {
-          console.log("updated");
-          reset();
-          navigate("/");
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Registration Successfully  done",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          const savedUser = { name: data.name, email: data.email };
+
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                navigate("/");
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Registration Successfully  done",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              }
+            });
         })
         .catch((error) => console.log(error));
     });
