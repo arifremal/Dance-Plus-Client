@@ -1,8 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../Authproviders/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const ClassesCard = ({ item }) => {
   const {user} = useContext(AuthContext)
+  const navigate = useNavigate()
   const handleAddtoCart = (item) => {
     console.log(item);
     if(user){
@@ -10,9 +13,30 @@ const ClassesCard = ({ item }) => {
       .then(res=> res.json())
       .then(data =>{
         if(data.insertedId){
-          
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
+
         }
 
+      })
+    } else {
+      Swal.fire({
+        title: 'Please login to purchase this course',
+
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'login Now!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/login')
+        }
       })
     }
   };
