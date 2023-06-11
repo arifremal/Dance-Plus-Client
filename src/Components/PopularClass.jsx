@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import ClassCard from "./ClassCard";
+import Items from "../Hooks/showItems";
+import useItems from "../Hooks/showItems";
+
 
 const PopularClass = () => {
   const [ourclss, setOurClass] = useState([]);
@@ -10,6 +13,10 @@ const PopularClass = () => {
         const popularItems = data.filter(item=> item.category ==='popular')
         setOurClass(popularItems)});
   }, []);
+
+
+
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-10 sm:p-2 ">
