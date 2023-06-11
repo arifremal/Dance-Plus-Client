@@ -4,7 +4,7 @@ import InstructorsCard from "../Components/InstructorsCard";
 const InstructorPage = () => {
     const [ourinstructors,setOurinstructors] =useState([])
     useEffect(() => { 
-      fetch("instructors.json")
+      fetch("http://localhost:5000/instructors")
         .then((res) => res.json())
         .then((data) => setOurinstructors(data));
     }, []);

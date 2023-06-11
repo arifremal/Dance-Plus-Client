@@ -32,7 +32,7 @@ import Classes from "../Pages/Classes";
           element:<SignUp></SignUp>
         },{
           path:'classes',
-          element:<Classes></Classes>
+          element:<PrivateRoute><Classes></Classes></PrivateRoute>
         }
       ]
     },
