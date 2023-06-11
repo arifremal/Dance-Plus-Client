@@ -23,7 +23,7 @@ const Navbar = () => {
       </li>
       <li>
         <Link to={"/classes"}>Classes </Link>
-        <Link to={"/myclasses"}>My Classes </Link>
+      
       </li>
       <Link to={"/"}>
         <button className="btn bg-black text-white border-none hover:bg-black">
@@ -88,6 +88,8 @@ const Navbar = () => {
             >
               Logout
             </button>
+            <Link to={"/myclasses"}>My Classes </Link>
+
           </>
         ) : (
           <>
@@ -97,6 +99,7 @@ const Navbar = () => {
                 Login
               </a>
             </Link>
+            
           </>
         )}
       </div>
