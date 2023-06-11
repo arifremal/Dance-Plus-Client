@@ -2,10 +2,14 @@ import { useContext } from "react";
 import { AuthContext } from "../Authproviders/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useCart from "../Hooks/useCart";
+
 
 const ClassesCard = ({ item }) => {
+
   const { _id, image, name, InsturorName, email, price, seats } = item;
   const { user } = useContext(AuthContext);
+  const [,refetch]= useCart()
   const location = useLocation();
   const navigate = useNavigate();
   const handleAddtoCart = (item) => {
@@ -31,10 +35,12 @@ const ClassesCard = ({ item }) => {
 
         .then((data) => {
           if (data.insertedId) {
+            refetch();
+           
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Course added on the cart",
+              title: "Booked Done Please check on My Classes Page",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -77,7 +83,7 @@ const ClassesCard = ({ item }) => {
               onClick={() => handleAddtoCart(item)}
               className="btn  bg-yellow-400 text-black "
             >
-              Enroll Now
+              Book Now
             </button>
           </div>
         </div>

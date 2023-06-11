@@ -1,30 +1,38 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Authproviders/AuthProvider";
-import { FaBeer, } from 'react-icons/fa';
+import useCart from "../Hooks/useCart";
 
 const Navbar = () => {
-  const {user,logout} = useContext(AuthContext)
-  const handleLogout=()=>{
+  const[enroll] = useCart()
+  const { user, logout } = useContext(AuthContext);
+  const handleLogout = () => {
     logout()
-    .then(()=>{
-
-    })
-    .catch(error=>{console.log(error)})
-  }
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const nav = (
     <>
-      <li><Link to={"/"}>Home </Link></li>
-      <li><Link to={"/instructor"}>Instructors </Link></li>
-      <li><Link to={"/classes"}>Classes </Link></li>
-<Link to={'/'}>
-<button className="btn bg-black text-white border-none hover:bg-black">
-<p className="text-yellow-400">My Class</p>
-  <div className="badge bg-black text-yellow-400 badge-secondary">+0</div>
-</button>
-</Link>
-     
-
+      <li>
+        <Link to={"/"}>Home </Link>
+      </li>
+      <li>
+        <Link to={"/instructor"}>Instructors </Link>
+      </li>
+      <li>
+        <Link to={"/classes"}>Classes </Link>
+        <Link to={"/myclasses"}>My Classes </Link>
+      </li>
+      <Link to={"/"}>
+        <button className="btn bg-black text-white border-none hover:bg-black">
+          <p className="text-yellow-400">Dashboard</p>
+          <div className="badge bg-black text-yellow-400 badge-secondary">
+            +{enroll.length || 0}
+          </div>
+        </button>
+      </Link>
     </>
   );
   return (
@@ -60,21 +68,37 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{nav}</ul>
       </div>
       <div className="navbar-end">
-      {
-        user ? <>
-        <div className="tooltip tooltip-bottom me-1" data-tip={user.displayName}>
-        <img
-                  style={{ height: "45px" }}
-                  className="rounded-full tooltip tooltip-bottom" data-tip="hello"
-                  src={user.photoURL}
-                  alt=""
-                />
-                </div>
-          <button onClick={handleLogout} className="btn bg-yellow-400 text-black border-none hover:bg-white">Logout</button>
-        </> : <>
-         <Link to={'login'} > <a className="btn bg-yellow-400 text-black border-none hover:bg-white">Login</a></Link>
-        </>
-      }
+        {user ? (
+          <>
+            <div
+              className="tooltip tooltip-bottom me-1"
+              data-tip={user.displayName}
+            >
+              <img
+                style={{ height: "45px" }}
+                className="rounded-full tooltip tooltip-bottom"
+                data-tip="hello"
+                src={user.photoURL}
+                alt=""
+              />
+            </div>
+            <button
+              onClick={handleLogout}
+              className="btn bg-yellow-400 text-black border-none hover:bg-white"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to={"login"}>
+              {" "}
+              <a className="btn bg-yellow-400 text-black border-none hover:bg-white">
+                Login
+              </a>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

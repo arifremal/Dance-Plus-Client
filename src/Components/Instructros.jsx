@@ -10,7 +10,7 @@ const Instructros = () => {
   }, []);
     return (
       <div>
-<div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-10 sm:p-2 ">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-10 mt-20 sm:p-2 ">
 {
   ourinstructor.map(item=> <InstructorCard
   key={item._id}
