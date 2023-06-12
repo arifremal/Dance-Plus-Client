@@ -14,6 +14,9 @@ import MyselectedClass from "../Components/MyselectedClass";
 import Dashboard from "../Layout/Dashboard";
 import Myclass from "../Pages/DashBoard/Myclass";
 import AllUser from "../Pages/DashBoard/AllUser";
+import UserHome from "../Pages/DashBoard/UserHome";
+import AdminAccess from "../Pages/DashBoard/AdminAccess";
+import InstructorAccess from "../Pages/DashBoard/InstructorAccess";
 
  export const router = createBrowserRouter([
     {
@@ -52,6 +55,18 @@ import AllUser from "../Pages/DashBoard/AllUser";
       path:'dashboard',
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
+        {
+          path:'userhome',
+          element:<UserHome></UserHome>
+        },
+        {
+          path:'adminhome',
+          element:<AdminAccess></AdminAccess>
+        },
+        {
+          path:'instructorhome',
+          element:<InstructorAccess></InstructorAccess>
+        },
         {
           path:'selectedclass',
           element:<Myclass></Myclass>
