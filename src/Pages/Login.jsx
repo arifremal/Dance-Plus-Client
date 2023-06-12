@@ -43,10 +43,12 @@ const Login = () => {
       const loggeduser = result.user;
       console.log(loggeduser);
 
-
-      const savedUser = { name: loggeduser.displayName, email: loggeduser.email };
+      const savedUser = {
+        name: loggeduser.displayName,
+        email: loggeduser.email,
+      };
       console.log(savedUser);
-      fetch("http://localhost:5000/users", {
+      fetch("https://dance-plus-server.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -56,13 +58,9 @@ const Login = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
-        
             navigate(from);
-         
           }
         });
-
-
 
       Swal.fire({
         position: "center",

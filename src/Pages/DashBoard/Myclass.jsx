@@ -3,7 +3,7 @@ import useCart from "../../Hooks/useCart";
 import { useState } from "react";
 
 const Myclass = () => {
-const [enroll]= useCart()
+  const [enroll] = useCart();
   const [, refetch] = useCart();
   console.log(enroll);
   const total = enroll.reduce((sum, item) => item.price + sum, 0);
@@ -21,7 +21,7 @@ const [enroll]= useCart()
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/enroll/${id}`, {
+        fetch(`https://dance-plus-server.vercel.app/enroll/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

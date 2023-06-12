@@ -4,12 +4,10 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../Hooks/useCart";
 
-
 const ClassesCard = ({ item }) => {
-
   const { _id, image, name, InsturorName, email, price, seats } = item;
   const { user } = useContext(AuthContext);
-  const [,refetch]= useCart()
+  const [, refetch] = useCart();
   const location = useLocation();
   const navigate = useNavigate();
   const handleAddtoCart = (item) => {
@@ -24,7 +22,7 @@ const ClassesCard = ({ item }) => {
         email: user.email,
       };
 
-      fetch("http://localhost:5000/enroll", {
+      fetch("https://dance-plus-server.vercel.app/enroll", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -36,7 +34,7 @@ const ClassesCard = ({ item }) => {
         .then((data) => {
           if (data.insertedId) {
             refetch();
-           
+
             Swal.fire({
               position: "center",
               icon: "success",
