@@ -13,6 +13,9 @@ import useAds from "../Hooks/usAds";
 import useInstructor from "../Hooks/useInstructor";
 
 
+
+
+
 const Dashboard = () => {
   
   // const isheAdmin = true
@@ -70,6 +73,12 @@ const [isheAdmin] =useAds();
               <FaDeezer></FaDeezer> Add a class
             </NavLink>
           </li>
+             <li className="hover:bg-yellow-400">
+            <NavLink to={"/dashboard/manageclass"}>
+              {" "}
+              <FaDeezer></FaDeezer> Manage class
+            </NavLink>
+          </li>
           </div>
          ) : ( <div>
 
@@ -108,6 +117,7 @@ const [isheAdmin] =useAds();
 
           
         </ul>
+  
       </div>
     </div>
   );

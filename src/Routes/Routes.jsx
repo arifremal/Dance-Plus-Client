@@ -18,11 +18,14 @@ import UserHome from "../Pages/DashBoard/UserHome";
 import AdminAccess from "../Pages/DashBoard/AdminAccess";
 import InstructorAccess from "../Pages/DashBoard/InstructorAccess";
 import AddaClass from "../Pages/DashBoard/AddaClass";
+import Manageclass from "../Pages/DashBoard/Manageclass";
+import ErrorEoute from "../Pages/ErrorEoute";
 
  export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>  ,
+      errorElement:<ErrorEoute></ErrorEoute>,
       children:[
         {
             path:'/',
@@ -79,6 +82,10 @@ import AddaClass from "../Pages/DashBoard/AddaClass";
         {
           path:'addaclass',
           element:<AddaClass></AddaClass>
+        },
+        {
+          path:'manageclass',
+          element:<Manageclass></Manageclass>
         }
       ]
     }
