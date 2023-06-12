@@ -26,7 +26,7 @@ const Navbar = () => {
       
       </li>
       <li>
-        <Link to={"/dashboard/selectedclass"}>DashBoard </Link>
+        <Link to={"/dashboard"}>DashBoard </Link>
       
       </li>
 

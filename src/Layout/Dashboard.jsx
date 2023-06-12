@@ -11,6 +11,10 @@ import {
 import { Link, NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+  
+  const isheAdmin = true
+  const isheInstructor = false
+  // const isheStudent = false
   return (
     <div className="drawer lg:drawer-open bg-white">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -27,9 +31,37 @@ const Dashboard = () => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200  space-y-3">
-          {/* Sidebar content here */}
+        
+        {
+          isheAdmin ?( 
+            
+          <ul>
+              <li className="hover:bg-yellow-400">
+            <NavLink to={"/"}>
+              {" "}
+              <FaHome></FaHome> Home
+            </NavLink>
+          </li>
+            <li className="hover:bg-yellow-400">
+            <NavLink to={"/dashboard/allusers"}>
+              {" "}
+              <FaUser></FaUser> AllUsers
+            </NavLink>
+          </li>
+          </ul>
 
-          <li className="hover:bg-yellow-400">
+          ) : isheInstructor ? (   <div>
+             <li className="hover:bg-yellow-400">
+            <NavLink to={"/dashboard/addaclass"}>
+              {" "}
+              <FaDeezer></FaDeezer> Add a class
+            </NavLink>
+          </li>
+          </div>
+         ) : ( <div>
+
+
+<li className="hover:bg-yellow-400">
             <NavLink to={"/"}>
               {" "}
               <FaHome></FaHome> Home
@@ -53,6 +85,15 @@ const Dashboard = () => {
               <FaAddressBook></FaAddressBook> Enrolled Class
             </NavLink>
           </li>
+         
+
+          </div> ) }
+
+
+
+       
+
+          
         </ul>
       </div>
     </div>

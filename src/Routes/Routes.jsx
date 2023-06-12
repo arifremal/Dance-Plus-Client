@@ -13,6 +13,7 @@ import Classes from "../Pages/Classes";
 import MyselectedClass from "../Components/MyselectedClass";
 import Dashboard from "../Layout/Dashboard";
 import Myclass from "../Pages/DashBoard/Myclass";
+import AllUser from "../Pages/DashBoard/AllUser";
 
  export const router = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ import Myclass from "../Pages/DashBoard/Myclass";
         {
           path:'selectedclass',
           element:<Myclass></Myclass>
+        },
+        {
+          path:'allusers',
+          element:<AllUser></AllUser>
         }
       ]
     }
