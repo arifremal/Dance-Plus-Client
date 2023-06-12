@@ -58,6 +58,12 @@ const [isheAdmin] =useAds();
           </ul>
 
           ) : isheInstructor ? (   <div>
+            <li className="hover:bg-yellow-400">
+            <NavLink to={"/"}>
+              {" "}
+              <FaHome></FaHome> Home
+            </NavLink>
+          </li>
              <li className="hover:bg-yellow-400">
             <NavLink to={"/dashboard/addaclass"}>
               {" "}
