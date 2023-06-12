@@ -17,6 +17,7 @@ import AllUser from "../Pages/DashBoard/AllUser";
 import UserHome from "../Pages/DashBoard/UserHome";
 import AdminAccess from "../Pages/DashBoard/AdminAccess";
 import InstructorAccess from "../Pages/DashBoard/InstructorAccess";
+import AddaClass from "../Pages/DashBoard/AddaClass";
 
  export const router = createBrowserRouter([
     {
@@ -45,10 +46,10 @@ import InstructorAccess from "../Pages/DashBoard/InstructorAccess";
           path:'myclasses',
           element: <PrivateRoute><MyselectedClass></MyselectedClass></PrivateRoute>
         },
-        // {
-        //   path:'select',
-        //   element:<MyselectedClass></MyselectedClass>
-        // }
+        {
+          path:'select',
+          element:<MyselectedClass></MyselectedClass>
+        }
       ]
     },
     {
@@ -74,6 +75,10 @@ import InstructorAccess from "../Pages/DashBoard/InstructorAccess";
         {
           path:'allusers',
           element:<AllUser></AllUser>
+        },
+        {
+          path:'addaclass',
+          element:<AddaClass></AddaClass>
         }
       ]
     }

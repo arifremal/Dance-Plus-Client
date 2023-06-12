@@ -3,7 +3,7 @@ import useCart from "../../Hooks/useCart";
 import { useState } from "react";
 
 const Myclass = () => {
-  const [enroll] = useCart();
+const [enroll]= useCart()
   const [, refetch] = useCart();
   console.log(enroll);
   const total = enroll.reduce((sum, item) => item.price + sum, 0);

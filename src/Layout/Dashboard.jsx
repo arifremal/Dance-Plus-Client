@@ -9,11 +9,15 @@ import {
 } from "react-icons/fa";
 
 import { Link, NavLink, Outlet } from "react-router-dom";
+import useAds from "../Hooks/usAds";
+import useInstructor from "../Hooks/useInstructor";
+
 
 const Dashboard = () => {
   
-  const isheAdmin = true
-  const isheInstructor = false
+  // const isheAdmin = true
+const [isheAdmin] =useAds();
+  const [isheInstructor] = useInstructor()
   // const isheStudent = false
   return (
     <div className="drawer lg:drawer-open bg-white">
@@ -42,12 +46,15 @@ const Dashboard = () => {
               <FaHome></FaHome> Home
             </NavLink>
           </li>
+
             <li className="hover:bg-yellow-400">
             <NavLink to={"/dashboard/allusers"}>
               {" "}
               <FaUser></FaUser> AllUsers
             </NavLink>
           </li>
+          
+         
           </ul>
 
           ) : isheInstructor ? (   <div>
